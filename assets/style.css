@@ -1,0 +1,27 @@
+h1 {
+  background: linear-gradient(to left, #230556 0%, #3b6dc3 100%);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+input {
+  padding: 10px 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: grey 1px solid;
+}
+
+button {
+  background-color: #5aa2e9;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
