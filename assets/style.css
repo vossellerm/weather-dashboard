@@ -22,6 +22,10 @@ button {
   width: 100%;
 }
 
+img {
+  height: 27px;
+}
+
 #weather {
   display: none;
   flex-direction: column;
