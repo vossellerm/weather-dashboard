@@ -1,23 +1,46 @@
-// // API key from weather API
-// var APIKey = "901c73df804f3ef17710b144f76aa6c2";
+// API key from weather API
+var APIKey = "901c73df804f3ef17710b144f76aa6c2";
 
-// // variable to store city name collected from weather API
-// var city = "San Diego";
+// variable to store city name collected from weather API
+var city = "San Diego";
 
-// // variable to store current weather data URL and necessary variables
-// var queryURL =
-//   "http://api.openweathermap.org/data/2.5/weather?q=" +
-//   city +
-//   "&appid=" +
-//   APIKey;
+// variable to store current weather data URL and necessary variables
+// var cityURL =
+//   "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + APIKey;
 
 // // fetch API
-// fetch(queryURL)
+// fetch(cityURL)
 //   .then(function (response) {
 //     return response.json();
 //   })
 //   .then(function (data) {
-//     console.log(data);
+//     var latitude = data[0].lat;
+//     var longitude = data[0].lon;
+//     var coordinatesURL =
+//       "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+//       latitude +
+//       "&lon=" +
+//       longitude +
+//       "&exclude=hourly,daily" +
+//       "&appid=" +
+//       APIKey +
+//       "&units=imperial";
+//     fetch(coordinatesURL)
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(data);
+
+//         var currentTemp = document.getElementById("currentTemp");
+//         var currentWind = document.getElementById("currentWind");
+//         var currentHumidity = document.getElementById("currentHumidity");
+//         var uv = document.getElementById("uv");
+//         currentTemp.textContent = data.current.temp;
+//         currentWind.textContent = data.current.wind_speed;
+//         currentHumidity.textContent = data.current.humidity;
+//         uv.textContent = data.current.uvi;
+//       });
 //   });
 
 var cityInputEl = document.querySelector("#city");
@@ -61,12 +84,53 @@ var formSubmitHandler = function (event) {
 
   if (cityText) {
     cityInputEl.value = "";
+
+    var cityURL =
+      "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      cityText +
+      "&appid=" +
+      APIKey;
+
+    // fetch API
+    fetch(cityURL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var latitude = data[0].lat;
+        var longitude = data[0].lon;
+        var coordinatesURL =
+          "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+          latitude +
+          "&lon=" +
+          longitude +
+          "&exclude=hourly,daily" +
+          "&appid=" +
+          APIKey +
+          "&units=imperial";
+        fetch(coordinatesURL)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+
+            var currentTemp = document.getElementById("currentTemp");
+            var currentWind = document.getElementById("currentWind");
+            var currentHumidity = document.getElementById("currentHumidity");
+            var uv = document.getElementById("uv");
+            currentTemp.textContent = data.current.temp;
+            currentWind.textContent = data.current.wind_speed;
+            currentHumidity.textContent = data.current.humidity;
+            uv.textContent = data.current.uvi;
+          });
+      });
   } else {
     alert("Please enter a city");
   }
 
   if (cityText === "") {
-      return;
+    return;
   }
 
   cities.push(cityText);
@@ -74,6 +138,15 @@ var formSubmitHandler = function (event) {
   storeCities();
   renderCities();
 };
+
+historyButtons.addEventListener("click", function (event) {
+  var element = event.target;
+
+  if (element.matches(".history-button") === true) {
+    var city = element.textContent;
+    alert(city);
+  }
+});
 
 weatherFormEl.addEventListener("submit", formSubmitHandler);
 
