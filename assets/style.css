@@ -17,10 +17,23 @@ button {
   background-color: #5aa2e9;
   color: white;
   border: none;
-  padding: 5px 5px;
+  padding: 10px 5px;
   border-radius: 5px;
   width: 100%;
 }
+
+#weather {
+  display: none;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 10px;
+}
+
+#history-buttons {
+  border-top: solid 3px #b7b7b7;
+  margin-top: 20px;
+}
+
 .data {
   display: flex;
 }
@@ -32,11 +45,10 @@ button {
   margin-right: 10px;
 }
 
-#weather {
-  display: none;
-  flex-direction: column;
-  width: 80%;
-  margin: 0 10px;
+.history-button {
+  margin-top: 10px;
+  background-color: #b7b7b7;
+  color: black;
 }
 
 .currentWeather {

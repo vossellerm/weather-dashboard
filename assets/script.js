@@ -65,6 +65,10 @@ var formSubmitHandler = function (event) {
     alert("Please enter a city");
   }
 
+  if (cityText === "") {
+      return;
+  }
+
   cities.push(cityText);
 
   storeCities();
