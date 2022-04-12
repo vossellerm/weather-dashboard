@@ -39,10 +39,21 @@ img {
 }
 
 #uv {
-  background-color: green;
   color: white;
   padding: 3px 10px;
   border-radius: 5px;
+}
+
+.favorable {
+  background-color: green;
+}
+
+.moderate {
+  background-color: orange;
+}
+
+.severe {
+  background-color: red;
 }
 
 .data {
