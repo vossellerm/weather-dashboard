@@ -22,8 +22,33 @@
 
 var cityInputEl = document.querySelector("#city");
 var weatherFormEl = document.querySelector("#weather-form");
+var historyButtons = document.querySelector("#history-buttons");
 
 var cities = [];
+
+function renderCities() {
+  historyButtons.innerHTML = "";
+
+  for (var i = 0; i < cities.length; i++) {
+    var city = cities[i];
+
+    var button = document.createElement("button");
+    button.classList.add("history-button");
+    button.textContent = city;
+
+    historyButtons.appendChild(button);
+  }
+}
+
+function init() {
+  var storedCities = JSON.parse(localStorage.getItem("cities"));
+
+  if (storedCities) {
+    cities = storedCities;
+  }
+
+  renderCities();
+}
 
 function storeCities() {
   localStorage.setItem("cities", JSON.stringify(cities));
@@ -32,17 +57,18 @@ function storeCities() {
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  var city = cityInputEl.value.trim();
+  var cityText = cityInputEl.value.trim();
 
-  if (city) {
+  if (cityText) {
     cityInputEl.value = "";
   } else {
     alert("Please enter a city");
   }
 
-  cities.push(city);
+  cities.push(cityText);
 
   storeCities();
+  renderCities();
 };
 
 weatherFormEl.addEventListener("submit", formSubmitHandler);
@@ -55,3 +81,5 @@ searchBtn.addEventListener("click", displayWeather);
 function displayWeather() {
   weather.style.display = "flex";
 }
+
+init();
