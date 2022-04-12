@@ -10,6 +10,7 @@ input {
   margin-bottom: 10px;
   border-radius: 5px;
   border: grey 1px solid;
+  width: 100%;
 }
 
 button {
@@ -18,6 +19,7 @@ button {
   border: none;
   padding: 5px 5px;
   border-radius: 5px;
+  width: 100%;
 }
 .data {
   display: flex;
