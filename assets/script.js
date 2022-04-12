@@ -115,10 +115,18 @@ var formSubmitHandler = function (event) {
           .then(function (data) {
             console.log(data);
 
+            var city = document.getElementById("cityName");
+            var date = new Date();
+            var currentDate = document.getElementById("currentDate");
             var currentTemp = document.getElementById("currentTemp");
             var currentWind = document.getElementById("currentWind");
             var currentHumidity = document.getElementById("currentHumidity");
             var uv = document.getElementById("uv");
+            city.textContent = cityText;
+            currentDate.textContent = moment(
+              date,
+              "ddd MMM DD YYYY kk:mm:ss zz"
+            ).format("(M/D/YYYY)");
             currentTemp.textContent = data.current.temp;
             currentWind.textContent = data.current.wind_speed;
             currentHumidity.textContent = data.current.humidity;
