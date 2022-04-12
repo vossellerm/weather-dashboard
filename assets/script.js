@@ -1,48 +1,5 @@
 // API key from weather API
 var APIKey = "901c73df804f3ef17710b144f76aa6c2";
-
-// variable to store city name collected from weather API
-var city = "San Diego";
-
-// variable to store current weather data URL and necessary variables
-// var cityURL =
-//   "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + APIKey;
-
-// // fetch API
-// fetch(cityURL)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     var latitude = data[0].lat;
-//     var longitude = data[0].lon;
-//     var coordinatesURL =
-//       "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-//       latitude +
-//       "&lon=" +
-//       longitude +
-//       "&exclude=hourly,daily" +
-//       "&appid=" +
-//       APIKey +
-//       "&units=imperial";
-//     fetch(coordinatesURL)
-//       .then(function (response) {
-//         return response.json();
-//       })
-//       .then(function (data) {
-//         console.log(data);
-
-//         var currentTemp = document.getElementById("currentTemp");
-//         var currentWind = document.getElementById("currentWind");
-//         var currentHumidity = document.getElementById("currentHumidity");
-//         var uv = document.getElementById("uv");
-//         currentTemp.textContent = data.current.temp;
-//         currentWind.textContent = data.current.wind_speed;
-//         currentHumidity.textContent = data.current.humidity;
-//         uv.textContent = data.current.uvi;
-//       });
-//   });
-
 var cityInputEl = document.querySelector("#city");
 var weatherFormEl = document.querySelector("#weather-form");
 var historyButtons = document.querySelector("#history-buttons");
@@ -121,7 +78,9 @@ var formSubmitHandler = function (event) {
             var currentIcon = document.createElement("img");
             var currentIconCode = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png";
+              "https://openweathermap.org/img/wn/" +
+              currentIconCode +
+              "@2x.png";
             var currentDate = document.getElementById("currentDate");
             var currentTemp = document.getElementById("currentTemp");
             var currentWind = document.getElementById("currentWind");
@@ -140,12 +99,14 @@ var formSubmitHandler = function (event) {
             currentHumidity.textContent = data.current.humidity;
             uv.textContent = data.current.uvi;
 
+            console.log(typeof uv.textContent);
+
             // day 1
             var date1 = document.getElementById("date1");
             var icon1 = document.createElement("img");
             var iconCode1 = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + iconCode1 + "@2x.png";
+              "https://openweathermap.org/img/wn/" + iconCode1 + "@2x.png";
             var temp1 = document.getElementById("temp1");
             var wind1 = document.getElementById("wind1");
             var humidity1 = document.getElementById("humidity1");
@@ -164,7 +125,7 @@ var formSubmitHandler = function (event) {
             var icon2 = document.createElement("img");
             var iconCode2 = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + iconCode2 + "@2x.png";
+              "https://openweathermap.org/img/wn/" + iconCode2 + "@2x.png";
             var temp2 = document.getElementById("temp2");
             var wind2 = document.getElementById("wind2");
             var humidity2 = document.getElementById("humidity2");
@@ -183,7 +144,7 @@ var formSubmitHandler = function (event) {
             var icon3 = document.createElement("img");
             var iconCode3 = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + iconCode3 + "@2x.png";
+              "https://openweathermap.org/img/wn/" + iconCode3 + "@2x.png";
             var temp3 = document.getElementById("temp3");
             var wind3 = document.getElementById("wind3");
             var humidity3 = document.getElementById("humidity3");
@@ -202,7 +163,7 @@ var formSubmitHandler = function (event) {
             var icon4 = document.createElement("img");
             var iconCode4 = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + iconCode4 + "@2x.png";
+              "https://openweathermap.org/img/wn/" + iconCode4 + "@2x.png";
             var temp4 = document.getElementById("temp4");
             var wind4 = document.getElementById("wind4");
             var humidity4 = document.getElementById("humidity4");
@@ -221,7 +182,7 @@ var formSubmitHandler = function (event) {
             var icon5 = document.createElement("img");
             var iconCode5 = data.current.weather[0].icon;
             var imgURL =
-              "http://openweathermap.org/img/wn/" + iconCode5 + "@2x.png";
+              "https://openweathermap.org/img/wn/" + iconCode5 + "@2x.png";
             var temp5 = document.getElementById("temp5");
             var wind5 = document.getElementById("wind5");
             var humidity5 = document.getElementById("humidity5");
