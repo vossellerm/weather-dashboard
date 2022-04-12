@@ -20,6 +20,11 @@ fetch(queryURL)
     console.log(data);
   });
 
+var searchBtn = document.getElementById("searchBtn");
+var weather = document.getElementById("weather");
 
+searchBtn.addEventListener("click", displayWeather);
 
-
+function displayWeather() {
+  weather.style.display = "flex";
+}

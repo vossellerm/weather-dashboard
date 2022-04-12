@@ -30,8 +30,8 @@ button {
   margin-right: 10px;
 }
 
-.weather {
-  display: flex;
+#weather {
+  display: none;
   flex-direction: column;
   width: 80%;
   margin: 0 10px;
