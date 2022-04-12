@@ -9,11 +9,63 @@
   </head>
   <body>
     <h1>Weather Dashboard</h1>
-    <section class="search">
-      <h2>Search for a City:</h2>
-      <input type="text" placeholder="San Diego" />
-      <button>Search</button>
-     
+    <section class="data">
+      <div class="search">
+        <h2>Search for a City:</h2>
+        <input type="text" placeholder="San Diego" />
+        <button>Search</button>
+      </div>
+      <div class="weather">
+        <div class="currentWeather">
+          <h2>
+            <span class="city"> Atlanta </span>
+            <span class="currentDate">(3/30/2021)</span>
+            <span class="icon"></span>
+          </h2>
+          <p class="temperature">Temp: 74.01℉</p>
+          <p class="wind">Wind: 6.67 MPH</p>
+          <p class="humidity">Humidity: 46 %</p>
+          <p class="uvIndex">UV Index: <span class="uv">0.47</span></p>
+        </div>
+        <h3>5-Day Forecast:</h3>
+        <div class="forecast">
+          <div id="day1" class="dailyForecast">
+            <h3>3/31/2021</h3>
+            <p>🌥</p>
+            <p>Temp: 73.72℉</p>
+            <p>Wind: 9.53 MPH</p>
+            <p>Humidity: 66 %</p>
+          </div>
+          <div id="day2" class="dailyForecast">
+            <h3>3/31/2021</h3>
+            <p>🌥</p>
+            <p>Temp: 73.72℉</p>
+            <p>Wind: 9.53 MPH</p>
+            <p>Humidity: 66 %</p>
+          </div>
+          <div id="day3" class="dailyForecast">
+            <h3>3/31/2021</h3>
+            <p>🌥</p>
+            <p>Temp: 73.72℉</p>
+            <p>Wind: 9.53 MPH</p>
+            <p>Humidity: 66 %</p>
+          </div>
+          <div id="day4" class="dailyForecast">
+            <h3>3/31/2021</h3>
+            <p>🌥</p>
+            <p>Temp: 73.72℉</p>
+            <p>Wind: 9.53 MPH</p>
+            <p>Humidity: 66 %</p>
+          </div>
+          <div id="day5" class="dailyForecast">
+            <h3>3/31/2021</h3>
+            <p>🌥</p>
+            <p>Temp: 73.72℉</p>
+            <p>Wind: 9.53 MPH</p>
+            <p>Humidity: 66 %</p>
+          </div>
+        </div>
+      </div>
     </section>
     <script src="./assets/script.js"></script>
   </body>
