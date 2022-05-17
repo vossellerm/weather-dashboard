@@ -266,7 +266,6 @@ historyButtons.addEventListener("click", function (event) {
               "ddd MMM DD YYYY kk:mm:ss zz"
             ).format("(M/D/YYYY)");
             currentIcon.setAttribute("src", imgURL);
-            document.getElementById("currentIcon").appendChild(currentIcon);
             currentTemp.textContent = data.current.temp;
             currentWind.textContent = data.current.wind_speed;
             currentHumidity.textContent = data.current.humidity;
